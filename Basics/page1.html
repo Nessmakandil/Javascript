@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            document.write("Hello JavaScript from head");
+            document.write("<br>This is demo #1");
+            console.log("Display in console only");
+            console.error("Error #1: bla bla bla");
+            console.warn("Warning #1: bla bla bla");
+        </script>
+        <script src="script-1.js"></script>
+    </head>
+    <body>
+        <h1 onclick="alert('click event occurred!');">Nessma Kandil</h1>
+        <script>
+            document.write("Hello JavaScript from body");
+            console.error("Error #2: bla bla bla");
+            console.warn("Warning #2: bla bla bla");
+        </script>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, voluptates
+            recusandae cum natus quod nemo deserunt deleniti, error suscipit at iusto
+            asperiores voluptate accusamus reprehenderit, repellendus a aliquid veritatis!
+            Repudiandae?
+        </p>
+
+        <script>
+            /* Data Coercion */
+            console.log("5" == 5);/* the integer 5 is converted into string */
+            /* To avoid Data Coercion */
+            console.log("5" === 5);
+            /* Data Coercion */
+            console.log(5 < 4 < 1);/* false converted to 0 */
+            /* To avoid Data Coercion */
+            console.log(5 < (4 < 1));
+
+            /* conditional statement */
+            var response = prompt("Enter your name", "");
+            var sure = confirm("are you sure?");
+            if (sure) {
+                document.writeln("Welcome " + response + ":)");
+            } else {
+                alert("you haven't enter any name");
+            }
+
+            var favColor = prompt("select your fav color", "1)Red 2)Green 3)Blue");
+            var color = "";
+            switch (favColor) {
+                case "1":
+                case "red":
+                case "RED":
+                    color = "RED";
+                    break;
+
+                case "2":
+                case "green":
+                case "GREEN":
+                    color = "GREEN";
+                    break;
+
+                case "3":
+                case "BLUE":
+                case "blue":
+                    color = "BLUE";
+                    break;
+                default:
+                    alert("you must choose from list");
+                    break;
+            }
+
+            if (color) {
+                document.writeln("your favorite color is " + color);
+            }
+
+            /* loops */
+
+            document.write("<br>1. for .. in loop<br>");
+
+            const object = {
+                a: 1,
+                b: 2,
+                c: 3
+            };
+            for (const key in object) {
+                if (Object.hasOwnProperty.call(object, key)) {
+                    const element = object[key];
+                    document.writeln("key: " + key);
+                    document.write("has value: " + element + "<br>");
+                }
+            }
+
+            document.write("<br>2. foreach loop<br>");
+
+            const array = ['a', 'b', 'c'];
+            array.forEach(element => {
+                console.log(element);
+                document.write(element + " ");
+            });
+
+            document.write("<br>3. for .. of loop<br>");
+            for (const iterator of array) {
+                console.log(iterator);
+                document.write(iterator + " ");
+            }
+
+            document.write("<br>4. original for loop<br>");
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                console.log(element);
+                document.write(element + " ");
+            }
+
+            document.write("<br>5. do .. while loop<br>");
+            index = 0;
+            do {
+                console.log(array[index]);
+                document.write(array[index] + " ");
+                index += 1;
+            } while (index < array.length);
+
+            document.write("<br>6. while loop<br>");
+            index = 0;
+            while (index < array.length) {
+                console.log(array[index]);
+                document.write(array[index] + " ");
+                index += 1;
+            }
+
+            /* built in functions */
+
+            var num = prompt("enter an integer number");
+            var parser = parseInt(num);
+            document.write("<br>you entered " + parser + "<br>");
+
+            /* isFinite vs isNaN*/
+            console.log(isFinite("1532fdf"));/*false*/
+            console.log(isFinite(125));/*true*/
+            console.log(isFinite("125"));/*true*/
+
+            /* custom function call */
+            var x = (parseFloat(prompt("Enter the first number")) == NaN)
+                ? 0
+                : parseFloat(prompt("Enter the first number"));
+            var y = (parseFloat(prompt("Enter the second number")) == NaN)
+                ? 0
+                : parseFloat(prompt("Enter the second number"));
+
+            var result = addTwoParam(x, y);
+            console.log(result);
+
+            /* variable scope - shadowing*/
+            var a = 10;
+            function incr(x) {
+                var z = a + parseInt(x);
+                console.log(a);
+                return z;
+            }
+            var newI = incr(a);
+            console.log(newI);
+        </script>
+    </body>
+</html>
