@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Document</title>
+    <script>
+        document.cookie = "name=oeschger; SameSite=None; Secure";
+        console.log(document.cookie);
+    </script>
+</head>
+<body>
+    <input type="text" name="userName" id="username" placeholder="Enter your First Name">
+    <button type="button" id="btn1" onclick="saveInfo()">Save</button>
+    <script>
+        var nameVal, date;
+        function saveInfo() {
+            // date = new Date();
+            // date.setMonth(date.getMonth()+3);
+            // val = document.getElementById("username").value;
+            // document.cookie = "usernameCookie=" + val + "; expires=" + date.toUTCString() + "; SameSite=None";
+            
+            // console.log(document.cookie);
+            
+        }
+    </script>
+</body>
+</html>
